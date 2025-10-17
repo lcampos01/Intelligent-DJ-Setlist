@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+  app:
+    build: ./app
+    container_name: track_blending_app
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./music:/music:ro
+      - ./data:/data
+    environment:
+      - DATA_DIR=/data
+      - MUSIC_DIR=/music
+    restart: unless-stopped
+
+      
